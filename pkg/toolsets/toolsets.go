@@ -6,6 +6,7 @@ import (
 	"github.com/rancher/rancher-ai-mcp/pkg/toolsets/core"
 	"github.com/rancher/rancher-ai-mcp/pkg/toolsets/fleet"
 	"github.com/rancher/rancher-ai-mcp/pkg/toolsets/provisioning"
+	"github.com/rancher/rancher-ai-mcp/pkg/toolsets/rbac"
 )
 
 // toolsAdder is an interface for types that can add tools to an MCP server.
@@ -28,5 +29,6 @@ func allToolSets(client *client.Client, rancherURL string, readOnly bool) []tool
 		core.NewTools(client, rancherURL, readOnly),
 		fleet.NewTools(client, rancherURL),
 		provisioning.NewTools(client, rancherURL, readOnly),
+		rbac.NewTools(client, rancherURL, readOnly),
 	}
 }
